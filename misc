@@ -1,0 +1,24 @@
+nuke.knobDefault("ColorCorrect.master.saturation", "2")
+
+
+
+#CREATE GRADE ON NODES
+for node in nuke.selectedNodes():
+    nuke.nodes.Grade().setInput(0, node)
+
+#SET VALUE ON NODES
+for node in nuke.selectedNodes():
+    print node.name()
+    node.knob('whitepoint').setValue(1)
+
+#CREATE WRITE ON NODES
+for node in nuke.selectedNodes():
+    nuke.nodes.Write().setInput(0, node)
+
+#SET WRITE PATH
+for node in nuke.selectedNodes():
+    node.knob('file').setValue("[file dirname [knob [topnode].file]]/graded/[join [lrange [split [lindex [split [lindex [split [knob [topnode].file] .] 0] /] end] _] 0 end-1] _]_e.png")
+
+for node in nuke.selectedNodes():
+    print node.name()
+    node.knob('create_directories').setValue(1)
