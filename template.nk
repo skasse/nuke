@@ -1,0 +1,136 @@
+#! C:/Program Files/Nuke13.2v4/nuke-13.2.4.dll -nx
+#write_info Write1 file:"./contactsheet.png" format:"2500 4000 1" chans:":rgba.red:rgba.green:rgba.blue:" framerange:"1 1" fps:"0" colorspace:"default (sRGB)" datatype:"8 bit" transfer:"unknown" views:"main" colorManagement:"Nuke"
+version 13.2 v4
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="0" y="0" w="3437" h="1368" screen="0">
+        <splitter orientation="1">
+            <split size="40"/>
+            <dock id="" hideTitles="1" activePageId="Toolbar.1">
+                <page id="Toolbar.1"/>
+            </dock>
+            <split size="2774" stretch="1"/>
+            <splitter orientation="2">
+                <split size="778"/>
+                <dock id="" activePageId="Viewer.1">
+                    <page id="Viewer.1"/>
+                </dock>
+                <split size="548"/>
+                <dock id="" activePageId="DAG.1" focus="true">
+                    <page id="DAG.1"/>
+                    <page id="Curve Editor.1"/>
+                    <page id="DopeSheet.1"/>
+                </dock>
+            </splitter>
+            <split size="615"/>
+            <dock id="" activePageId="Properties.1">
+                <page id="Properties.1"/>
+                <page id="uk.co.thefoundry.backgroundrenderview.1"/>
+            </dock>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+ inputs 0
+ name C:/Scripts/nuke/template.nk
+ project_directory "\[python \{nuke.script_directory()\}]"
+ last_frame 1
+ lock_range true
+ format "2048 1556 0 0 2048 1556 1 2K_Super_35(full-ap)"
+ proxy_type scale
+ proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+ colorManagement Nuke
+ workingSpaceLUT linear
+ monitorLut sRGB
+ monitorOutLUT rec709
+ int8Lut sRGB
+ int16Lut sRGB
+ logLut Cineon
+ floatLut linear
+}
+Read {
+ inputs 0
+ file_type png
+ file "G:/Shared drives/TriplegangersGroom_ext/Groom_INTERNAL/SimonYuen/maya/base_delta/images/dh_coil_0.5c0.1r_dh_coil_0.5c3.6r_dh_noise_0.1freq_0.6mag_0.5corr_dh_noise_0.1freq_4.6mag_0.5corr/delta.#.png"
+ format "2048 2048 0 0 2048 2048 1 square_2K"
+ origset true
+ colorspace linear
+ name INPUT_SEQ
+ xpos -44
+ ypos -461
+}
+Grade {
+ whitepoint 2
+ name Grade1
+ xpos -44
+ ypos -250
+}
+set N31dc2800 [stack 0]
+Text2 {
+ font_size_toolbar 47.4
+ font_width_toolbar 100
+ font_height_toolbar 100
+ message "\[metadata input/filename]"
+ old_message {{71 58 47 83 104 97 114 101 100 32 100 114 105 118 101 115 47 84 114 105 112 108 101 103 97 110 103 101 114 115 71 114 111 111 109 95 101 120 116 47 71 114 111 111 109 95 73 78 84 69 82 78 65 76 47 83 105 109 111 110 89 117 101 110 47 109 97 121 97 47 98 97 115 101 95 100 101 108 116 97 47 105 109 97 103 101 115 47 100 104 95 99 111 105 108 95 48 46 53 99 48 46 49 114 95 100 104 95 99 111 105 108 95 48 46 53 99 51 46 54 114 95 100 104 95 110 111 105 115 101 95 48 46 49 102 114 101 113 95 48 46 54 109 97 103 95 48 46 53 99 111 114 114 95 100 104 95 110 111 105 115 101 95 48 46 49 102 114 101 113 95 52 46 54 109 97 103 95 48 46 53 99 111 114 114 47 100 101 108 116 97 46 49 46 112 110 103}
+   }
+ old_expression_markers {{0 196}
+   }
+ box {17.5 20 1870.5 36}
+ transforms {{0 2}
+   }
+ global_font_scale 0.15
+ font_size 47.4
+ center {1024 778}
+ cursor_initialised true
+ autofit_bbox false
+ initial_cursor_position {{276 416.5}
+   }
+ group_animations {{0} imported: 0 selected: items: "root transform/"}
+ animation_layers {{1 11 1024 778 0 0 1 1 0 0 0 0}
+   }
+ color {0 0 0 1}
+ color_panelDropped true
+ name Text1
+ label "TErst\n"
+ xpos -224
+ ypos -207
+}
+push $N31dc2800
+Merge2 {
+ inputs 2
+ name Merge1
+ xpos -44
+ ypos -137
+}
+ContactSheet {
+ width 2500
+ height 4000
+ rows 8
+ columns 5
+ roworder TopBottom
+ splitinputs true
+ startframe 1
+ endframe 40
+ name ContactSheet1
+ xpos -44
+ ypos -10
+}
+Write {
+ file ./contactsheet.png
+ file_type png
+ checkHashOnRead false
+ version 1
+ name Write1
+ xpos -44
+ ypos 73
+}
+Viewer {
+ frame 1
+ frame_range 1-1
+ clip_warning exposure
+ monitorOutOutputTransform rec709
+ name Viewer1
+ xpos -348
+ ypos 162
+}
