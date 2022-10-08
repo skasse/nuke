@@ -52,7 +52,7 @@ Root {
 Read {
  inputs 0
  file_type png
- file "G:/Shared drives/TriplegangersGroom_ext/Groom_INTERNAL/SimonYuen/maya/base_delta/images/dh_coil_0.5c0.1r_dh_coil_0.5c3.6r_dh_noise_0.1freq_0.6mag_0.5corr_dh_noise_0.1freq_4.6mag_0.5corr/delta.#.png"
+ file ./delta.#.png
  format "2048 2048 0 0 2048 2048 1 square_2K"
  origset true
  colorspace linear
@@ -66,21 +66,19 @@ Grade {
  xpos -44
  ypos -250
 }
-set N31dc2800 [stack 0]
+set N83572800 [stack 0]
 Text2 {
- font_size_toolbar 47.4
+ font_size_toolbar 100
  font_width_toolbar 100
  font_height_toolbar 100
  message "\[metadata input/filename]"
- old_message {{71 58 47 83 104 97 114 101 100 32 100 114 105 118 101 115 47 84 114 105 112 108 101 103 97 110 103 101 114 115 71 114 111 111 109 95 101 120 116 47 71 114 111 111 109 95 73 78 84 69 82 78 65 76 47 83 105 109 111 110 89 117 101 110 47 109 97 121 97 47 98 97 115 101 95 100 101 108 116 97 47 105 109 97 103 101 115 47 100 104 95 99 111 105 108 95 48 46 53 99 48 46 49 114 95 100 104 95 99 111 105 108 95 48 46 53 99 51 46 54 114 95 100 104 95 110 111 105 115 101 95 48 46 49 102 114 101 113 95 48 46 54 109 97 103 95 48 46 53 99 111 114 114 95 100 104 95 110 111 105 115 101 95 48 46 49 102 114 101 113 95 52 46 54 109 97 103 95 48 46 53 99 111 114 114 47 100 101 108 116 97 46 49 46 112 110 103}
-   }
- old_expression_markers {{0 196}
+ old_expression_markers {{0 -1}
    }
  box {17.5 20 1870.5 36}
  transforms {{0 2}
    }
+ cursor_position 25
  global_font_scale 0.15
- font_size 47.4
  center {1024 778}
  cursor_initialised true
  autofit_bbox false
@@ -96,7 +94,7 @@ Text2 {
  xpos -224
  ypos -207
 }
-push $N31dc2800
+push $N83572800
 Merge2 {
  inputs 2
  name Merge1

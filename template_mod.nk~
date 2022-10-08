@@ -1,11 +1,11 @@
 #! C:/Program Files/Nuke13.2v4/nuke-13.2.4.dll -nx
-#write_info Write1 file:"./contactsheet.png" format:"2500 4000 1" chans:":rgba.red:rgba.green:rgba.blue:" framerange:"1 80" fps:"0" colorspace:"default" datatype:"8 bit" transfer:"unknown" views:"main" colorManagement:"Nuke"
+#write_info Write1 file:"./contactsheet.png" format:"1250 2000 1" chans:":rgba.red:rgba.green:rgba.blue:" framerange:"1 40" fps:"0" colorspace:"default" datatype:"8 bit" transfer:"unknown" views:"main" colorManagement:"Nuke"
 version 13.2 v4
 Root {
  inputs 0
- name C:/Scripts/Nuke/template.nk
- project_directory "\[python \{nuke.script_directory()\}]"
- last_frame 80
+ name C:/Scripts/nuke/template.nk
+ project_directory "G:/Shared drives/TriplegangersGroom_ext/Groom_INTERNAL/SimonYuen/maya/base_delta/images/dh_coil_0.5c0.1r_dh_coil_0.5c3.6r_dh_noise_0.1freq_0.6mag_0.5corr_dh_noise_0.1freq_4.6mag_0.5corr/"
+ last_frame 40
  lock_range true
  format "2048 1556 0 0 2048 1556 1 2K_Super_35(full-ap)"
  proxy_type scale
@@ -24,8 +24,8 @@ Read {
  file_type png
  file "G:/Shared drives/TriplegangersGroom_ext/Groom_INTERNAL/SimonYuen/maya/base_delta/images/dh_coil_0.5c0.1r_dh_coil_0.5c3.6r_dh_noise_0.1freq_0.6mag_0.5corr_dh_noise_0.1freq_4.6mag_0.5corr/delta.#.png"
  format "2048 2048 0 0 2048 2048 1 square_2K"
- last 80
- origlast 80
+ last 40
+ origlast 40
  origset true
  colorspace linear
  name INPUT_SEQ
@@ -38,7 +38,7 @@ Grade {
  xpos -44
  ypos -250
 }
-set N467c2800 [stack 0]
+set Nf8712800 [stack 0]
 Text2 {
  font_size_toolbar 47.4
  font_width_toolbar 100
@@ -68,7 +68,7 @@ Text2 {
  xpos -224
  ypos -207
 }
-push $N467c2800
+push $Nf8712800
 Merge2 {
  inputs 2
  name Merge1
@@ -76,8 +76,8 @@ Merge2 {
  ypos -137
 }
 ContactSheet {
- width 2500
- height 4000
+ width 1250
+ height 2000
  rows 8
  columns 5
  roworder TopBottom

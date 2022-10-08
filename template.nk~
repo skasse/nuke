@@ -1,32 +1,32 @@
 #! C:/Program Files/Nuke13.2v4/nuke-13.2.4.dll -nx
+#write_info Write1 file:"./contactsheet.png" format:"2500 4000 1" chans:":rgba.red:rgba.green:rgba.blue:" framerange:"1 1" fps:"0" colorspace:"default (sRGB)" datatype:"8 bit" transfer:"unknown" views:"main" colorManagement:"Nuke"
 version 13.2 v4
 define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
 <layout version="1.0">
-    <window x="-1" y="-8" w="3440" h="1377" maximized="1" screen="0">
+    <window x="0" y="0" w="3437" h="1368" screen="0">
         <splitter orientation="1">
-            <split size="2178"/>
-            <splitter orientation="1">
-                <split size="1269"/>
-                <dock id="" activePageId="uk.co.thefoundry.scripteditor.1">
-                    <page id="uk.co.thefoundry.scripteditor.1"/>
-                </dock>
-                <split size="905"/>
-                <dock id="" activePageId="DAG.1">
-                    <page id="DAG.1"/>
-                </dock>
-            </splitter>
-            <split size="1258"/>
+            <split size="40"/>
+            <dock id="" hideTitles="1" activePageId="Toolbar.1">
+                <page id="Toolbar.1"/>
+            </dock>
+            <split size="2774" stretch="1"/>
             <splitter orientation="2">
-                <split size="668"/>
-                <dock id="" activePageId="Properties.1" focus="true">
-                    <page id="Properties.1"/>
-                    <page id="uk.co.thefoundry.backgroundrenderview.1"/>
-                </dock>
-                <split size="667"/>
-                <dock id="" hideTitles="1" activePageId="Viewer.1">
+                <split size="778"/>
+                <dock id="" activePageId="Viewer.1">
                     <page id="Viewer.1"/>
                 </dock>
+                <split size="548"/>
+                <dock id="" activePageId="DAG.1" focus="true">
+                    <page id="DAG.1"/>
+                    <page id="Curve Editor.1"/>
+                    <page id="DopeSheet.1"/>
+                </dock>
             </splitter>
+            <split size="615"/>
+            <dock id="" activePageId="Properties.1">
+                <page id="Properties.1"/>
+                <page id="uk.co.thefoundry.backgroundrenderview.1"/>
+            </dock>
         </splitter>
     </window>
 </layout>
@@ -35,7 +35,6 @@ Root {
  inputs 0
  name C:/Scripts/nuke/template.nk
  project_directory "\[python \{nuke.script_directory()\}]"
- frame 78
  last_frame 1
  lock_range true
  format "2048 1556 0 0 2048 1556 1 2K_Super_35(full-ap)"
@@ -55,8 +54,6 @@ Read {
  file_type png
  file "G:/Shared drives/TriplegangersGroom_ext/Groom_INTERNAL/SimonYuen/maya/base_delta/images/dh_coil_0.5c0.1r_dh_coil_0.5c3.6r_dh_noise_0.1freq_0.6mag_0.5corr_dh_noise_0.1freq_4.6mag_0.5corr/delta.#.png"
  format "2048 2048 0 0 2048 2048 1 square_2K"
- last 1
- origlast 1
  origset true
  colorspace linear
  name INPUT_SEQ
@@ -69,7 +66,7 @@ Grade {
  xpos -44
  ypos -250
 }
-set N81472c00 [stack 0]
+set N31dc2800 [stack 0]
 Text2 {
  font_size_toolbar 47.4
  font_width_toolbar 100
@@ -99,7 +96,7 @@ Text2 {
  xpos -224
  ypos -207
 }
-push $N81472c00
+push $N31dc2800
 Merge2 {
  inputs 2
  name Merge1
@@ -119,9 +116,18 @@ ContactSheet {
  xpos -44
  ypos -10
 }
+Write {
+ file ./contactsheet.png
+ file_type png
+ checkHashOnRead false
+ version 1
+ name Write1
+ xpos -44
+ ypos 73
+}
 Viewer {
- frame 78
- frame_range 1-80
+ frame 1
+ frame_range 1-1
  clip_warning exposure
  monitorOutOutputTransform rec709
  name Viewer1

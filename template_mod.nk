@@ -1,11 +1,11 @@
 #! C:/Program Files/Nuke13.2v4/nuke-13.2.4.dll -nx
-#write_info Write1 file:"./contactsheet.png" format:"2500 4000 1" chans:":rgba.red:rgba.green:rgba.blue:" framerange:"1 80" fps:"0" colorspace:"default" datatype:"8 bit" transfer:"unknown" views:"main" colorManagement:"Nuke"
+#write_info Write1 file:"./contactsheet.png" format:"1250 1250 1" chans:":rgba.red:rgba.green:rgba.blue:" framerange:"1 40" fps:"0" colorspace:"default" datatype:"8 bit" transfer:"unknown" views:"main" colorManagement:"Nuke"
 version 13.2 v4
 Root {
  inputs 0
- name C:/Scripts/Nuke/template.nk
- project_directory "\[python \{nuke.script_directory()\}]"
- last_frame 80
+ name C:/Scripts/nuke/template.nk
+ project_directory "G:/Shared drives/TriplegangersGroom_ext/Groom_INTERNAL/SimonYuen/maya/base_delta/images/dh_coil_0.5c0.1r_dh_coil_0.5c3.6r_dh_noise_0.1freq_0.6mag_0.5corr_dh_noise_0.1freq_4.6mag_0.5corr/"
+ last_frame 40
  lock_range true
  format "2048 1556 0 0 2048 1556 1 2K_Super_35(full-ap)"
  proxy_type scale
@@ -22,10 +22,10 @@ Root {
 Read {
  inputs 0
  file_type png
- file "G:/Shared drives/TriplegangersGroom_ext/Groom_INTERNAL/SimonYuen/maya/base_delta/images/dh_coil_0.5c0.1r_dh_coil_0.5c3.6r_dh_noise_0.1freq_0.6mag_0.5corr_dh_noise_0.1freq_4.6mag_0.5corr/delta.#.png"
+ file ./delta.#.png
  format "2048 2048 0 0 2048 2048 1 square_2K"
- last 80
- origlast 80
+ last 40
+ origlast 40
  origset true
  colorspace linear
  name INPUT_SEQ
@@ -38,21 +38,21 @@ Grade {
  xpos -44
  ypos -250
 }
-set Nf6d82800 [stack 0]
+set N35c32800 [stack 0]
 Text2 {
- font_size_toolbar 47.4
+ font_size_toolbar 100
  font_width_toolbar 100
  font_height_toolbar 100
  message "\[metadata input/filename]"
- old_message {{71 58 47 83 104 97 114 101 100 32 100 114 105 118 101 115 47 84 114 105 112 108 101 103 97 110 103 101 114 115 71 114 111 111 109 95 101 120 116 47 71 114 111 111 109 95 73 78 84 69 82 78 65 76 47 83 105 109 111 110 89 117 101 110 47 109 97 121 97 47 98 97 115 101 95 100 101 108 116 97 47 105 109 97 103 101 115 47 100 104 95 99 111 105 108 95 48 46 53 99 48 46 49 114 95 100 104 95 99 111 105 108 95 48 46 53 99 51 46 54 114 95 100 104 95 110 111 105 115 101 95 48 46 49 102 114 101 113 95 48 46 54 109 97 103 95 48 46 53 99 111 114 114 95 100 104 95 110 111 105 115 101 95 48 46 49 102 114 101 113 95 52 46 54 109 97 103 95 48 46 53 99 111 114 114 47 100 101 108 116 97 46 52 48 46 112 110 103}
+ old_message {{71 58 47 83 104 97 114 101 100 32 100 114 105 118 101 115 47 84 114 105 112 108 101 103 97 110 103 101 114 115 71 114 111 111 109 95 101 120 116 47 71 114 111 111 109 95 73 78 84 69 82 78 65 76 47 83 105 109 111 110 89 117 101 110 47 109 97 121 97 47 98 97 115 101 95 100 101 108 116 97 47 105 109 97 103 101 115 47 100 104 95 99 111 105 108 95 48 46 53 99 48 46 49 114 95 100 104 95 99 111 105 108 95 48 46 53 99 51 46 54 114 95 100 104 95 110 111 105 115 101 95 48 46 49 102 114 101 113 95 48 46 54 109 97 103 95 48 46 53 99 111 114 114 95 100 104 95 110 111 105 115 101 95 48 46 49 102 114 101 113 95 52 46 54 109 97 103 95 48 46 53 99 111 114 114 47 100 101 108 116 97 46 50 53 46 112 110 103}
    }
  old_expression_markers {{0 197}
    }
  box {17.5 20 1870.5 36}
  transforms {{0 2}
    }
+ cursor_position 25
  global_font_scale 0.15
- font_size 47.4
  center {1024 778}
  cursor_initialised true
  autofit_bbox false
@@ -68,7 +68,7 @@ Text2 {
  xpos -224
  ypos -207
 }
-push $Nf6d82800
+push $N35c32800
 Merge2 {
  inputs 2
  name Merge1
@@ -76,9 +76,9 @@ Merge2 {
  ypos -137
 }
 ContactSheet {
- width 2500
- height 4000
- rows 8
+ width 1250
+ height 1250
+ rows 5
  columns 5
  roworder TopBottom
  splitinputs true
